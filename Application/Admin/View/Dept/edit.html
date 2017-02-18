@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="__ADMIN__/css/base.css" />
+<link rel="stylesheet" href="__ADMIN__/css/info-reg.css" />
+<title>移动办公自动化系统</title>
+    <style>
+        label.error{
+            color:#ff0000;
+        }
+        #intro-error{
+            float: right;
+            margin-right: 380px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="title"><h2>部门编辑</h2></div>
+<form action="__ACTION__" method="POST" id="theform">
+<div class="main">
+    <p class="short-input ue-clear">
+    	<label>部门名称：</label>
+        <input type="text"  name="name" value="{$data['name']}" />
+    </p>
+    <div class="short-input select ue-clear">
+    	<label>上级部门：</label>
+        <div class="select-wrap">
+			 <select name="pid" style=" width: 262px; height: 32px;" class="select-title ue-clear"  id="">
+                <option value="0">顶级部门</option>
+                 <volist name="depts" id="dept">
+                     <if condition="$data['pid'] eq $dept['id']">
+                         <option value="{$dept['id']}" selected="selected">{$dept['level']|str_repeat="&nbsp",###*3}{$dept['name']}</option>
+                         <else />
+                         <option value="{$dept['id']}">{$dept['level']|str_repeat="&nbsp",###*3}{$dept['name']}</option>
+                     </if>
+
+                 </volist>
+            </select>
+        </div>
+    </div>
+    <p class="short-input ue-clear">
+        <label>排序</label>
+        <input type="text" name="sort" value="{$data['sort']}"  />
+    </p>
+    <p class="short-input ue-clear">
+    	<label>添加时间：</label>
+       <!-- <input type="text" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" />-->
+        <input type="text" name="add_time" value="{$data['add_time']}" id="add_time" autocomplete="off"/>
+    </p>
+    <p class="short-input ue-clear">
+    	<label>部门描述：</label>
+        <textarea name="intro">{$data['intro']}</textarea>
+        <input type="hidden">
+
+    </p>
+    <input type="hidden" name="id" value="{$data['id']}">
+</div>
+<div class="btn ue-clear">
+     <input type="submit" class="confirm" value="修改"/>
+    <input type="reset" class="clear" value="重置"/>
+</div>
+</form>
+</body>
+<script type="text/javascript" src="__ADMIN__/js/jquery.js"></script>
+<script type="text/javascript" src="__ADMIN__/js/common.js"></script>
+<script type="text/javascript" src="__ADMIN__/laydate/laydate.js"></script>
+<script type="text/javascript" src="__ADMIN__/js/jquery.validate.min.js"></script>
+<script type="text/javascript">
+
+    //初始化表单验证插件
+    $('#theform').validate({
+        //设置验证规则
+        rules:{
+            name:{required:true,rangelength:[4,10]},
+            sort:{required:true,digits:true},
+            intro:{required:true,minlength:5},
+            add_time:{required:true,dateISO:true}
+        },
+
+        //设置验证不通过的提示
+        messages:{
+            name:{
+                required:'必填',
+                rangelength:'部门长度在4-10位'
+            },
+            sort:{
+                required:'必填',
+                digits:'必须为整数'
+            },
+            intro:{
+                required:'必填',
+                minlength:'描述至少要5个字'
+            },
+            add_time:{
+                required:'必填',
+                dateISO:'日期格式为xxxx-xx-xx'
+            }
+
+        }
+
+    })
+
+
+    //初始化时间插件
+    laydate({
+        'elem': '#add_time', //需显示日期的元素选择器
+        'event': 'click', //触发事
+        'format': 'YYYY-MM-DD' //日期格式
+    })
+
+
+</script>
+</html>

@@ -1,0 +1,6 @@
+[ 2017-01-28T16:24:57+08:00 ] 127.0.0.1 /index.php/Admin/User/add
+ERR: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect date value: '' for column 'birthday' at row 1
+
+[ 2017-01-28T17:08:09+08:00 ] 127.0.0.1 /index.php/Admin/User/add
+ERR: SQLSTATE[HY000]: General error: 1366 Incorrect integer value: '请选择' for column 'dept_id' at row 1
+

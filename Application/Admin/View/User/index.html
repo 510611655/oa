@@ -1,0 +1,159 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="__ADMIN__/css/base.css" />
+<link rel="stylesheet" href="__ADMIN__/css/info-mgt.css" />
+<link rel="stylesheet" href="__ADMIN__/css/WdatePicker.css" />
+<title>移动办公自动化系统</title>
+<style type='text/css'>
+	table tr .id{ width:63px; text-align: center;}
+	table tr .name{ width:118px; padding-left:17px;}
+	table tr .nickname{ width:63px; padding-left:17px;}
+	table tr .dept_id{ width:63px; padding-left:13px;}
+	table tr .sex{ width:63px; padding-left:13px;}
+	table tr .birthday{ width:80px; padding-left:13px;}
+	table tr .tel{ width:113px; padding-left:13px;}
+	table tr .email{ width:160px; padding-left:13px;}
+	table tr .addtime{ width:160px; padding-left:13px;}
+	table tr .operate{ padding-left:13px;}
+</style>
+</head>
+
+<body>
+<div class="title"><h2>职员管理</h2></div>
+<!--<div class="table-operate ue-clear">
+	<a href="__CONTROLLER__/add" class="add">添加</a>
+    &lt;!&ndash;<a href="__CONTROLLER__/chart" class="count">统计</a>&ndash;&gt;
+</div>-->
+<div class="table-box">
+	<table>
+    	<thead>
+        	<tr>
+            	<th class="id">序号</th>
+                <th class="name">登录名</th>
+				<th class="nickname">姓名</th>
+				<th class="nickname">头像</th>
+                <th class="tel">所属部门</th>
+				<th class="sex">性别</th>
+				<th class="birthday">生日</th>
+                <th class="tel">电话</th>
+				<th class="email">邮箱</th>
+                <th class="addtime">添加时间</th>
+                <th class="operate">操作</th>
+            </tr>
+        </thead>
+        <tbody>
+        	<volist name='data' id='vo'>
+        	<tr>
+            	<td class="id">{$key+1}</td>
+                <td class="name">{$vo['username']}</td>
+				<td class="nickname">{$vo['truename']}</td>
+				<td class="nickname">
+					<empty name="vo['photo']">
+						<img src="/Uploads/Photo/default_photo/thumb_default_photo.jpg">
+						<else/>
+						<img src="/Uploads/Photo/<?php echo explode(',',$vo['photo'])[1]; ?>">
+					</empty>
+				</td>
+                <td class="dept_id">{$vo['dept_name']}</td>
+                <td class="sex">{$vo['sex']?"女":"男"}</td>
+				<td class="tel">{$vo['birthday']}</td>
+				<td class="tel">{$vo['tel']}</td>
+				<td class="email">{$vo['email']}</td>
+                <td class="addtime">{$vo['add_time']}</td>
+                <td class="operate">
+
+
+					<volist name="three_auth" id="three">
+						<if condition="$three['s_name'] neq '删除'">
+							<a href="__CONTROLLER__/{$three['a_name']}/id/{$vo['id']}">{$three['s_name']}</a>&nbsp;&nbsp;
+							<else/>
+							<a href="javascript:;" id="{$vo['id']}" photo="{$vo['photo']}" class="delete">{$three['s_name']}</a>&nbsp;&nbsp;
+						</if>
+
+					</volist>
+				</td>
+            </tr>
+            </volist>
+        </tbody>
+    </table>
+</div>
+<div class="pagination ue-clear">
+	<div class="pagin-list">
+		{$pages}
+	</div>
+
+</div>
+
+</body>
+<script type="text/javascript" src="__ADMIN__/js/jquery.js"></script>
+<script type="text/javascript" src="__ADMIN__/js/common.js"></script>
+<script type="text/javascript" src="__ADMIN__/layer/layer.js"></script>
+<script type="text/javascript">
+//给删除链接绑定一个单击事件
+$(".delete").bind("click",function() {
+    //首先获取要删除的ID 和要删除的图片路径
+    var id = $( this ).attr( "id" );
+    var photo = $( this ).attr( "photo" );
+    //用一个变量去存储当前对象，便于AJAX的回调函数使用
+    var _this = $( this );
+
+    //询问框
+    layer.confirm( '是否确定要删除？' , {
+        btn : [ '确定' , '取消' ] //按钮
+    }, function () {
+        //点击确定的回调函数
+		//点击确定后把询问框关闭
+		layer.closeAll();
+        //用AJAX进行无刷新删除
+        $.ajax( {
+            type : "get" ,
+            url : "__CONTROLLER__/del" ,
+            data : { 'id' : id , 'photo' : photo } ,
+            dataType : "json" ,
+			beforeSend:function(){
+                //loading层
+                var index = layer.load(1, {
+                    shade: [0.3,'#666'] //0.1透明度的白色背景
+                });
+			},
+            success : function ( data ) {
+			    //将对应的加载层关闭
+				layer.closeAll();
+
+
+                if ( data.error == 0 ) {
+                    //如果删除成功，就将对应的标签删除
+                    _this.parent().parent().remove();
+
+                    //重新对序号进行排序
+                    //获取所有的tbody下的tr,进行遍历
+                    $( "tbody tr" ).each( function ( k , v ) {
+                        //对每一个tr下的第一个td进行重新赋值
+                        $( this ).find( "td" ).eq( 0 ).html( k + 1 );
+                    } )
+
+					//总记录数减1
+					var num=$(".pxofy b").html()-1;
+                    $(".pxofy b").html(num);
+
+                    //当将本页的所有数据删除了就刷新当前页面
+					if($("tbody tr").length<1){
+					    //重新加载URL地址
+						location.reload();
+					}
+
+                }
+            }
+        } )
+    },function(){
+
+	});
+})
+
+$("tbody").find("tr:odd").css("backgroundColor","#eff6fa");
+
+showRemind('input[type=text], textarea','placeholder');
+</script>
+</html>

@@ -1,0 +1,258 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="__ADMIN__/css/base.css" />
+<link rel="stylesheet" href="__ADMIN__/css/info-mgt.css" />
+<title>移动办公自动化系统</title>
+<style type='text/css'>
+	table tr .id{ width:63px; text-align: center;}
+	table tr .name{ width:118px; padding-left:17px;}
+	table tr .nickname{ width:63px; padding-left:17px;}
+	table tr .dept_id{ width:63px; padding-left:13px;}
+	table tr .sex{ width:63px; padding-left:13px;}
+	table tr .birthday{ width:80px; padding-left:13px;}
+	table tr .tel{ width:113px; padding-left:13px;}
+	table tr .email{ width:160px; padding-left:13px;}
+	table tr .addtime{ width:160px; padding-left:13px;}
+	table tr .operate{ padding-left:13px;}
+</style>
+</head>
+
+<body>
+<div class="title"><h2>信息管理</h2></div>
+<!--<div class="table-operate ue-clear">
+    <a href="__CONTROLLER__/chart" class="count">统计</a>
+</div>-->
+<div class="table-box">
+	<table>
+    	<thead>
+        	<tr>
+            	<th class="id">序号</th>
+                <th class="name">邮件标题</th>
+				<th class="nickname">发件人</th>
+				<th class="nickname">附件</th>
+				<th class="birthday">邮件内容</th>
+				<th class="id">状态</th>
+                <th class="addtime">发送时间</th>
+                <th class="operate">操作</th>
+            </tr>
+        </thead>
+        <tbody>
+        	<volist name='data' id='vo'>
+        	<tr>
+            	<td class="id">{$key+1}</td>
+                <td class="name">{$vo['title']}</td>
+				<td class="nickname">{$vo['send_name']}</td>
+
+				<if condition="$vo['file'] eq ''">
+					<td class="dept_id">暂无附件</td>
+					<else />
+					<td class="dept_id"><a href="__CONTROLLER__/down/id/{$vo['id']}" >点击下载</a></td>
+				</if>
+
+				<if condition="$vo['content'] eq ''">
+					<td class="tel">暂无内容</td>
+					<else />
+					<td class="tel "><a href="javascript:;" class="content" email_id="{$vo['id']}" is_read="{$vo['is_read']}" >查看内容</a></td>
+				</if>
+				<if condition="$vo['is_read'] eq 0">
+					<td class="id"><img src="__ADMIN__/images/rmail.png" ></td>
+					<else />
+					<td class="id"><img src="__ADMIN__/images/rmail1.png" ></td>
+				</if>
+
+                <td class="addtime">{$vo['send_time']}</td>
+                <td class="operate">
+
+					<volist name="three_auth" id="three">
+						<if condition="$three['s_name'] neq '删除'">
+							<!--<a href="__CONTROLLER__/{$three['a_name']}/id/{$vo['id']}">{$three['s_name']}</a>&nbsp;&nbsp;-->
+							<a href="javascript:;" re_id="{$vo['id']}" file="{$vo['file']}" class="restore">{$three['s_name']}</a>&nbsp;&nbsp;
+
+							<else/>
+							<a href="javascript:;" id="{$vo['id']}" file="{$vo['file']}" class="delete">{$three['s_name']}</a>&nbsp;&nbsp;
+						</if>
+
+					</volist>
+				</td>
+            </tr>
+            </volist>
+        </tbody>
+    </table>
+</div>
+<div class="pagination ue-clear">
+	<div class="pagin-list">
+		{$pages}
+	</div>
+
+</div>
+
+</body>
+<script type="text/javascript" src="__ADMIN__/js/jquery.js"></script>
+<script type="text/javascript" src="__ADMIN__/js/common.js"></script>
+<script type="text/javascript" src="__ADMIN__/layer/layer.js"></script>
+<script type="text/javascript">
+	//给查看内容绑定一个单击事件
+	$(".content").click(function(){
+	    //获取当前邮件的ID,和邮件当前的状态
+		var email_id=$(this).attr("email_id");
+		var is_read=$(this).attr("is_read");
+		var _this=$(this);
+
+		//通过ajax获取邮件内容
+		$.ajax({
+		    url:"__CONTROLLER__/getEmailContent",
+			type:'post',
+			data:{"id":email_id,"is_read":is_read},
+			success:function(data){
+                _this.attr("is_read",1);
+                _this.parent().next().find("img").attr("src","__ADMIN__/images/rmail1.png");
+
+                //页面层
+                layer.open({
+                    type: 1,
+                    skin: 'layui-layer-rim', //加上边框
+                    area: ['800px', '500px'], //宽高
+                    content: data
+                });
+
+
+
+            }
+		});
+
+	});
+
+    //给删除链接绑定一个单击事件
+    $(".delete").bind("click",function() {
+        //首先获取要删除的ID 和要删除的图片路径
+        var id = $( this ).attr( "id" );
+        var file=$(this).attr("file");
+        //用一个变量去存储当前对象，便于AJAX的回调函数使用
+        var _this = $( this );
+
+        //询问框
+        layer.confirm( '是否确定要删除？' , {
+            btn : [ '确定' , '取消' ] //按钮
+        }, function () {
+            //点击确定的回调函数
+            //点击确定后把询问框关闭
+            layer.closeAll();
+            //用AJAX进行无刷新删除
+            $.ajax( {
+                type : "get" ,
+                url : "__CONTROLLER__/truedel" ,
+                data : { 'id' : id,'file':file} ,
+                dataType : "json" ,
+                beforeSend:function(){
+                    //loading层
+                    var index = layer.load(1, {
+                        shade: [0.3,'#666'] //0.1透明度的白色背景
+                    });
+                },
+                success : function ( data ) {
+                    //将对应的加载层关闭
+                    layer.closeAll();
+
+
+                    if ( data.error == 0 ) {
+                        //如果删除成功，就将对应的标签删除
+                        _this.parent().parent().remove();
+
+                        //重新对序号进行排序
+                        //获取所有的tbody下的tr,进行遍历
+                        $( "tbody tr" ).each( function ( k , v ) {
+                            //对每一个tr下的第一个td进行重新赋值
+                            $( this ).find( "td" ).eq( 0 ).html( k + 1 );
+                        } )
+
+                        //总记录数减1
+                        var num=$(".pxofy b").html()-1;
+                        $(".pxofy b").html(num);
+
+                        //当将本页的所有数据删除了就刷新当前页面
+                        if($("tbody tr").length<1){
+                            //重新加载URL地址
+                            location.reload();
+                        }
+
+                    }else{
+                        //提示层
+                        layer.msg(data.info);
+                    }
+                }
+            } )
+        },function(){
+
+        });
+    })
+
+	//给邮件复原绑定一个单击事件
+    $(".restore").bind("click",function() {
+        //首先获取要删除的ID 和要删除的图片路径
+        var id = $( this ).attr( "re_id" );
+        //用一个变量去存储当前对象，便于AJAX的回调函数使用
+        var _this = $( this );
+
+        //询问框
+        layer.confirm( '是否确定要还原？' , {
+            btn : [ '确定' , '取消' ] //按钮
+        }, function () {
+            //点击确定的回调函数
+            //点击确定后把询问框关闭
+            layer.closeAll();
+            //用AJAX进行无刷新还原
+            $.ajax( {
+                type : "get" ,
+                url : "__CONTROLLER__/restore" ,
+                data : { 'id' : id } ,
+                dataType : "json" ,
+                beforeSend:function(){
+                    //loading层
+                    var index = layer.load(1, {
+                        shade: [0.3,'#666'] //0.1透明度的白色背景
+                    });
+                },
+                success : function ( data ) {
+                    //将对应的加载层关闭
+                    layer.closeAll();
+
+
+                    if ( data.error == 0 ) {
+                        //如果还原成功，就将对应的标签删除
+                        _this.parent().parent().remove();
+
+                        //重新对序号进行排序
+                        //获取所有的tbody下的tr,进行遍历
+                        $( "tbody tr" ).each( function ( k , v ) {
+                            //对每一个tr下的第一个td进行重新赋值
+                            $( this ).find( "td" ).eq( 0 ).html( k + 1 );
+                        } )
+
+                        //总记录数减1
+                        var num=$(".pxofy b").html()-1;
+                        $(".pxofy b").html(num);
+
+                        //当将本页的所有数据删除了就刷新当前页面
+                        if($("tbody tr").length<1){
+                            //重新加载URL地址
+                            location.reload();
+                        }
+
+                    }else{
+                        //提示层
+                        layer.msg(data.info);
+                    }
+                }
+            } )
+        },function(){
+
+        });
+    })
+
+$("tbody").find("tr:odd").css("backgroundColor","#eff6fa");
+
+showRemind('input[type=text], textarea','placeholder');
+</script>
+</html>

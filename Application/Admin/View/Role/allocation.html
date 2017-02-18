@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html charset='utf-8'>
+<head>
+    <title>权限分配</title>
+    <style>
+        .mydiv{margin-top: -10px;margin-left: 10px}
+
+        .mydiv ul{list-style:none;font-size: 16px}
+        .mydiv ul li{list-style: none;  margin-bottom: 0px;  margin-left: 23px;}
+        .mydiv ul li input{height: 30px;width: 20px;}
+
+
+
+    </style>
+</head>
+<body>
+<div id="content">
+
+    <div class="mydiv">
+        <h2>给[<span style="color:#ff804a">{$roles['role_name']}</span>]分配权限: </h2>
+
+            <form action="__ACTION__" method="post">
+                <input type="hidden" name="id" auth_ids="{$roles['auth_ids']}"  value="{$roles['id']}"/>
+
+                <div class="info">
+                    <!--一级遍历-->
+                    <volist name="one_auth" id="one">
+                        <ul style="width: 300px;">
+                            <input class="onemenu" type="checkbox" name="ids[]"  value="{$one['id']}"  style="height: 30px;width: 20px;margin-bottom: 6px;" /><span>{$one['name']}</span>
+                            <li>
+                                <!--二级遍历-->
+                                <volist name="two_auth" id="two">
+                                    <if condition="$one['id'] eq $two['pid']">
+                                        <ul style="width: 120px;">
+                                            <input name="ids[]"  class="twomenu"   value="{$two['id']}" type="checkbox"  /><span>{$two['name']}</span>
+                                            <!--三级遍历-->
+                                            <volist name="three_auth" id="three">
+                                                <if condition="$two['id'] eq $three['pid']">
+                                                    <li>
+                                                        <!--<span class="name">--><input name="ids[]"  class="threemenu"   value="{$three['id']}" type="checkbox"  /><span>{$three['name']}</span>
+                                                    </li>
+                                                </if>
+                                            </volist>
+                                        </ul>
+                                    </if>
+                                </volist>
+                            </li>
+                        </ul>
+                    </volist>
+                </div>
+                <hr/>
+                <input type="submit"  value="确定"/>
+                <input type="reset"  value="重置"/>
+            </form>
+    </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="__ADMIN__/js/jquery.js"></script>
+<script>
+
+    //获取对应角色的权限,将字符串转化成数组
+    var auth_ids=$("input[type='hidden']").attr("auth_ids");
+    auth_ids=auth_ids.split(",");
+
+
+    //先将默认的权限选上
+    $("input[type='checkbox']").each(function(){
+        if($.inArray($(this).attr("value"),auth_ids)>=0){
+            $(this).attr("checked",true);
+        }
+    })
+
+    //权限选择特效
+    //如果点击了一级权限，其下面的2级权限被选中
+    //获取所有的一级权限
+    $(".onemenu").click(function(){
+        var onemenu=$(this).attr("checked");
+
+        $(this).parent().find(".twomenu").attr("checked",onemenu?true:false);
+       $(this).parent().find(".threemenu").attr("checked",onemenu?true:false);
+
+    });
+
+
+    //获取所有的二级权限
+    $(".twomenu").click(function(){
+        var twomenu=$(this).attr("checked");
+        var sibling=$(this).parents('ul').find(".twomenu:checked").length;
+
+        $(this).parent().find(".threemenu").attr("checked",twomenu?true:false);
+       $(this).parents('ul').find(".onemenu").attr("checked",sibling?true:false);
+    });
+
+    //获取所有的三级权限
+    $(".threemenu").click(function(){
+        /*var threemenu=$(this).attr("checked");*/
+        var sibling=$(this).parents('ul').find(".threemenu:checked").length;
+
+        $(this).parent().parent("ul").find(".twomenu").attr("checked",sibling?true:true);
+
+        var parent=$(this).parents('ul').find(".twomenu:checked").length;
+        $(this).parents('ul').find(".onemenu").attr("checked",parent?true:false);
+
+    });
+
+</script>
+</html>
+

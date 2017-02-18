@@ -1,0 +1,291 @@
+[ 2017-02-01T15:05:22+08:00 ] 127.0.0.1 /index.php/Admin/User/del?id=45&photo=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000870s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001489s ]
+SQL: DELETE FROM `oa_user` WHERE `id` = '45' [ RunTime:0.0497s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002984s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003328s ]
+
+[ 2017-02-01T15:05:23+08:00 ] 127.0.0.1 /index.php/Admin/User/del?id=45&photo=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000654s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001101s ]
+SQL: DELETE FROM `oa_user` WHERE `id` = '45' [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000678s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000717s ]
+
+[ 2017-02-01T15:05:23+08:00 ] 127.0.0.1 /index.php/Admin/User/del?id=45&photo=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000862s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001461s ]
+SQL: DELETE FROM `oa_user` WHERE `id` = '45' [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000889s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000936s ]
+
+[ 2017-02-01T15:05:24+08:00 ] 127.0.0.1 /index.php/Admin/User/del?id=45&photo=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000980s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001660s ]
+SQL: DELETE FROM `oa_user` WHERE `id` = '45' [ RunTime:0.0003s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001080s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001153s ]
+
+[ 2017-02-01T15:05:24+08:00 ] 127.0.0.1 /index.php/Admin/User/del?id=45&photo=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000868s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001472s ]
+SQL: DELETE FROM `oa_user` WHERE `id` = '45' [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000975s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001028s ]
+
+[ 2017-02-01T15:05:24+08:00 ] 127.0.0.1 /index.php/Admin/User/del?id=45&photo=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001006s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001656s ]
+SQL: DELETE FROM `oa_user` WHERE `id` = '45' [ RunTime:0.0004s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001090s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001154s ]
+
+[ 2017-02-01T15:07:05+08:00 ] 127.0.0.1 /index.php/Admin/User/del?id=52&photo=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001021s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001679s ]
+SQL: DELETE FROM `oa_user` WHERE `id` = '52' [ RunTime:0.0026s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001157s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001214s ]
+
+[ 2017-02-01T15:07:53+08:00 ] 127.0.0.1 /index.php/Admin/User/del?id=47&photo=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000703s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001199s ]
+SQL: DELETE FROM `oa_user` WHERE `id` = '47' [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000738s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000778s ]
+
+[ 2017-02-01T15:07:57+08:00 ] 127.0.0.1 /index.php/Admin/User/del?id=50&photo=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001149s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001997s ]
+SQL: DELETE FROM `oa_user` WHERE `id` = '50' [ RunTime:0.0025s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000729s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000769s ]
+
+[ 2017-02-01T15:08:00+08:00 ] 127.0.0.1 /index.php/Admin/User/del?id=49&photo=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000847s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001435s ]
+SQL: DELETE FROM `oa_user` WHERE `id` = '49' [ RunTime:0.0021s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000716s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000755s ]
+
+[ 2017-02-01T15:08:01+08:00 ] 127.0.0.1 /index.php/Admin/User/del?id=48&photo=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000983s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001568s ]
+SQL: DELETE FROM `oa_user` WHERE `id` = '48' [ RunTime:0.0026s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000723s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000762s ]
+
+[ 2017-02-01T15:08:04+08:00 ] 127.0.0.1 /index.php/Admin/User/del?id=46&photo=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000940s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001596s ]
+SQL: DELETE FROM `oa_user` WHERE `id` = '46' [ RunTime:0.0017s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000878s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000927s ]
+
+[ 2017-02-01T15:09:23+08:00 ] 127.0.0.1 /index.php/Admin/User/del?id=55&photo=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000801s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001351s ]
+SQL: DELETE FROM `oa_user` WHERE `id` = '55' [ RunTime:0.0023s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000876s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000926s ]
+
+[ 2017-02-01T15:09:26+08:00 ] 127.0.0.1 /index.php/Admin/User/del?id=57&photo=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000852s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001432s ]
+SQL: DELETE FROM `oa_user` WHERE `id` = '57' [ RunTime:0.0027s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000709s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000751s ]
+
+[ 2017-02-01T15:09:54+08:00 ] 127.0.0.1 /index.php/Admin/User/del?id=56&photo=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000670s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001102s ]
+SQL: DELETE FROM `oa_user` WHERE `id` = '56' [ RunTime:0.0131s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000814s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000860s ]
+
+[ 2017-02-01T15:09:58+08:00 ] 127.0.0.1 /index.php/Admin/User/del?id=58&photo=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000966s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001681s ]
+SQL: DELETE FROM `oa_user` WHERE `id` = '58' [ RunTime:0.0192s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000965s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001023s ]
+
+[ 2017-02-01T15:10:54+08:00 ] 127.0.0.1 /index.php/Admin/User/del?id=60&photo=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000908s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001566s ]
+SQL: DELETE FROM `oa_user` WHERE `id` = '60' [ RunTime:0.0018s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000760s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000801s ]
+
+[ 2017-02-01T15:11:44+08:00 ] 127.0.0.1 /index.php/Admin/User/del?id=61&photo=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.006970s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.007689s ]
+SQL: DELETE FROM `oa_user` WHERE `id` = '61' [ RunTime:0.0024s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000909s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000954s ]
+
+[ 2017-02-01T15:12:29+08:00 ] 127.0.0.1 /index.php/Admin/User/del?id=64&photo=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000966s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001677s ]
+SQL: DELETE FROM `oa_user` WHERE `id` = '64' [ RunTime:0.0030s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000911s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000957s ]
+
+[ 2017-02-01T15:13:24+08:00 ] 127.0.0.1 /index.php/Admin/User/del?id=59&photo=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001147s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001802s ]
+SQL: DELETE FROM `oa_user` WHERE `id` = '59' [ RunTime:0.0024s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001029s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001088s ]
+
+[ 2017-02-01T15:14:43+08:00 ] 127.0.0.1 /index.php/Admin/User/del?id=54&photo=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001073s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001799s ]
+SQL: DELETE FROM `oa_user` WHERE `id` = '54' [ RunTime:0.0403s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001301s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001373s ]
+
+[ 2017-02-01T15:14:51+08:00 ] 127.0.0.1 /index.php/Admin/User/del?id=62&photo=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000901s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001565s ]
+SQL: DELETE FROM `oa_user` WHERE `id` = '62' [ RunTime:0.0035s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001364s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001440s ]
+
+[ 2017-02-01T15:14:56+08:00 ] 127.0.0.1 /index.php/Admin/User/del?id=63&photo=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000628s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001120s ]
+SQL: DELETE FROM `oa_user` WHERE `id` = '63' [ RunTime:0.0019s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000855s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000903s ]
+
+[ 2017-02-01T15:23:39+08:00 ] 127.0.0.1 /index.php/Admin/User/del?id=66&photo=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000772s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001303s ]
+SQL: DELETE FROM `oa_user` WHERE `id` = '66' [ RunTime:0.0663s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002647s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002799s ]
+
+[ 2017-02-01T15:23:43+08:00 ] 127.0.0.1 /index.php/Admin/User/del?id=69&photo=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000758s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001236s ]
+SQL: DELETE FROM `oa_user` WHERE `id` = '69' [ RunTime:0.0063s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000766s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000814s ]
+
+[ 2017-02-01T15:23:51+08:00 ] 127.0.0.1 /index.php/Admin/User/del?id=67&photo=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000699s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001160s ]
+SQL: DELETE FROM `oa_user` WHERE `id` = '67' [ RunTime:0.0540s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001130s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001188s ]
+
+[ 2017-02-01T15:23:54+08:00 ] 127.0.0.1 /index.php/Admin/User/del?id=68&photo=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001025s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001583s ]
+SQL: DELETE FROM `oa_user` WHERE `id` = '68' [ RunTime:0.0014s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001016s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001069s ]
+
+[ 2017-02-01T15:26:17+08:00 ] 127.0.0.1 /index.php/Admin/User/del?id=73&photo=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000666s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001182s ]
+SQL: DELETE FROM `oa_user` WHERE `id` = '73' [ RunTime:0.0588s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000908s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000963s ]
+
+[ 2017-02-01T15:26:19+08:00 ] 127.0.0.1 /index.php/Admin/User/del?id=72&photo=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000810s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001466s ]
+SQL: DELETE FROM `oa_user` WHERE `id` = '72' [ RunTime:0.0021s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001992s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002110s ]
+
+[ 2017-02-01T15:26:22+08:00 ] 127.0.0.1 /index.php/Admin/User/del?id=71&photo=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001254s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001764s ]
+SQL: DELETE FROM `oa_user` WHERE `id` = '71' [ RunTime:0.0446s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001172s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001237s ]
+
+[ 2017-02-01T15:26:24+08:00 ] 127.0.0.1 /index.php/Admin/User/del?id=70&photo=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001400s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002293s ]
+SQL: DELETE FROM `oa_user` WHERE `id` = '70' [ RunTime:0.0023s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001870s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001976s ]
+
+[ 2017-02-01T15:26:27+08:00 ] 127.0.0.1 /index.php/Admin/User/del?id=65&photo=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001187s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002036s ]
+SQL: DELETE FROM `oa_user` WHERE `id` = '65' [ RunTime:0.0021s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001081s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001142s ]
+
+[ 2017-02-01T15:29:34+08:00 ] 127.0.0.1 /index.php/Admin/User/edit/id/74
+ERR: 非法操作:edit
+

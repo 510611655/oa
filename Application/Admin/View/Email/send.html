@@ -1,0 +1,214 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="__ADMIN__/css/base.css" />
+<link rel="stylesheet" href="__ADMIN__/css/info-reg.css" />
+<title>移动办公自动化系统</title>
+    <style>
+        body form label.error{
+            width:300px;
+            color:#ff0000;
+        }
+
+        #intro-error{
+            float: right;
+            margin-right: 380px;
+        }
+
+        #seek{
+            background-color:#fff;
+            display: none;
+            position: absolute;
+            left: 114px;
+            border: 1px solid #C5D6E0;
+            border-top:none;
+            width: 260px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="title"><h2>发送邮件</h2></div>
+<form action="__ACTION__" method="POST" id="theform" enctype="multipart/form-data">
+<div class="main">
+    <p class="short-input ue-clear">
+    	<label>邮件标题</label>
+        <input type="text"  name="title" placeholder="邮件标题" />
+    </p>
+    <p class="short-input ue-clear">
+        <label>附件</label>
+        <input type="file" name="file"/>
+    </p>
+    <p class="short-input ue-clear" style="position:relative">
+        <label>收件人</label>
+        <input type="text" name="receiver_name"  autocomplete="off"/>
+        <input type="hidden" name="receiver_id"/>
+    </p>
+    <div id="seek"></div>
+
+    <p class="short-input ue-clear">
+    	<label>发送内容</label>
+        <textarea name="content" id="content"></textarea>
+    </p>
+</div>
+<div class="btn ue-clear">
+     <input type="submit" class="confirm" value="确定"/>
+    <input type="reset" class="clear" value="清空内容"/>
+</div>
+</form>
+</body>
+<script type="text/javascript" src="__ADMIN__/js/jquery.js"></script>
+<script type="text/javascript" src="__ADMIN__/js/common.js"></script>
+<script type="text/javascript" src="__ADMIN__/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="__ADMIN__/layer/layer.js"></script>
+<script type="text/javascript" src="__ADMIN__/kindeditor/kindeditor-all-min.js"></script>
+<script type="text/javascript" src="__ADMIN__/kindeditor/lang/zh-CN.js"></script>
+<script type="text/javascript">
+
+    //初始化编辑器
+    KindEditor.ready(function(K) {
+        window.editor = K.create('#content',{
+            width:'700px',
+            height:"200px",
+            //当编辑公文时要回显在输入框中
+            afterBlur:function(){this.sync();}
+        });
+    });
+
+    //给收件人绑定一个onkeyup事件
+    $("input[name='receiver_name']").keyup(function(){
+        //获取receiver_name的值
+        var receiver_name=$(this).val();
+        //判断是否为空，为空则返回false
+        if($.trim(receiver_name)==""){
+            $("#seek").hide();
+            return false;
+
+        }
+
+        //值不为空就利用ajax进行无刷新查询
+        $.ajax({
+            url:"__CONTROLLER__/getEmailUser",
+            type:"post",
+            data:{"receiver_name":receiver_name},
+            dataType:"json",
+            success:function(data){
+
+                //判断是否存在模糊查询的收件人
+                if(data.error==0){
+                    //循环之前先清空seek里面的所有div
+                    $("#seek").empty();
+                    //先循环接受的数组
+                    $.each(data,function(k,v){
+                        //创建div
+                        var div=$("<div></div>");
+                        //将查询的值添加到DIV里面
+                        div.html(v.username);
+                        //设置div的样式
+                        div.css("padding-left","10px");
+                        //将div追加到seek里面
+                        $("#seek").append(div).show();
+
+                        //给div绑定事件
+                        div.bind({
+                            //鼠标经过事件
+                            mouseover:function(){
+                                $(this).css("background-color","#C5D6E0");
+                            },
+                            //鼠标离开事件
+                            mouseout:function(){
+                                $(this).css("background-color","#fff");
+                            },
+                            //鼠标单击事件
+                            click:function(){
+
+                                //将错误显示的内容清空
+                                $("#receiver_name-error").html("");
+
+                                //将div的值赋值给收件人中，并且隐藏seek
+                               $("input[name='receiver_name']").val(v.username);
+                                $("input[name='receiver_id']").val(v.id);
+                                $("#seek").hide();
+                            }
+                        });
+
+                        //给收件人绑定一个失去焦点的事件
+                         $("input[name='receiver_name']").focusout(function(){
+                             setTimeout(function(){
+                                 $("#seek").hide();
+                             },100);
+                         });
+
+
+                    })
+                }
+            }
+        });
+    });
+
+    //初始化表单验证插件
+    $("#theform").validate({
+        rules:{
+            title:{required:true},
+            receiver_name:{required:true,ajax:""
+            }
+        },
+        messages:{
+            title:{
+                required:"邮件标题必填"
+            },
+            receiver_name:{
+                required:"收件人必填"
+            }
+        },
+        //判断是否附件和内容都为空，为空就不提交
+        submitHandler:function(){
+            //先获取附件信息和邮件内容信息
+            var file=$("input[name='file']").val();
+            var content=$("input[name='content']").val();
+
+            if(file=="" && content==""){
+                layer.msg("不能发送空邮件",{time:2000});
+                return false;
+            }
+            return true;
+
+        }
+    });
+
+    //利用ajax来验证是否存在收件人
+    $.validator.addMethod("ajax",function(value,ele,params){
+        //创建一个标记用于返回
+        var flag=true;
+        //如果收件人为空，则直接返回false
+        if($.trim(value)==''){
+            return false;
+        }
+
+        //利用ajax来验证是否存在收件人
+        $.ajax({
+            url:"__CONTROLLER__/checkEmailUser",
+            type:"post",
+            data:{"receiver_name":value},
+            dataType:"json",
+            async:false,
+            success:function(data){
+                //判断收件人名称是否存在
+                if(data.error==0){
+                    //将隐藏域receiver_id添加值
+                    $("input[name='receiver_id']").val(data.id);
+
+                }else{
+                    //收件人名称不存在，返回false；
+                    flag=false;
+                }
+            }
+        });
+        return flag;
+    },"收件人不存在");
+
+
+
+</script>
+</html>

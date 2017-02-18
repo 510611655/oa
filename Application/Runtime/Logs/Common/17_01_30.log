@@ -1,0 +1,15 @@
+[ 2017-01-30T15:30:55+08:00 ] 127.0.0.1 /favicon.ico
+ERR: 无法加载模块:Favicon
+
+[ 2017-01-30T17:28:50+08:00 ] 127.0.0.1 /favicon.ico
+ERR: 无法加载模块:Favicon
+
+[ 2017-01-30T20:46:37+08:00 ] 127.0.0.1 /favicon.ico
+ERR: 无法加载模块:Favicon
+
+[ 2017-01-30T22:51:18+08:00 ] 127.0.0.1 /Uploads/Photo/2017-01-30/thumb_588f52d6c4262.gif
+ERR: 无法加载模块:Uploads
+
+[ 2017-01-30T22:58:49+08:00 ] 127.0.0.1 /Uploads/Photo/2017-01-30/thumb_588f52d6c4262.gif
+ERR: 无法加载模块:Uploads
+

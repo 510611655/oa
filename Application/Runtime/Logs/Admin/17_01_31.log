@@ -1,0 +1,81 @@
+[ 2017-01-31T00:24:28+08:00 ] 127.0.0.1 /index.php/Admin/User/del?id=53&photo=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000773s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001314s ]
+SQL: DELETE FROM `oa_user` WHERE `id` = '53' [ RunTime:0.0027s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000746s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000782s ]
+
+[ 2017-01-31T00:24:30+08:00 ] 127.0.0.1 /index.php/Admin/User/del?id=51&photo=
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001021s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001697s ]
+SQL: DELETE FROM `oa_user` WHERE `id` = '51' [ RunTime:0.0021s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000750s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000787s ]
+
+[ 2017-01-31T00:57:50+08:00 ] 127.0.0.1 /index.php/Admin/Dept/index.html
+ERR: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'sort' in order clause is ambiguous
+
+[ 2017-01-31T00:58:15+08:00 ] 127.0.0.1 /index.php/Admin/Dept/index.html
+ERR: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'sort' in order clause is ambiguous
+
+[ 2017-01-31T00:58:15+08:00 ] 127.0.0.1 /index.php/Admin/Dept/index.html
+ERR: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'sort' in order clause is ambiguous
+
+[ 2017-01-31T00:58:15+08:00 ] 127.0.0.1 /index.php/Admin/Dept/index.html
+ERR: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'sort' in order clause is ambiguous
+
+[ 2017-01-31T00:58:16+08:00 ] 127.0.0.1 /index.php/Admin/Dept/index.html
+ERR: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'sort' in order clause is ambiguous
+
+[ 2017-01-31T00:58:16+08:00 ] 127.0.0.1 /index.php/Admin/Dept/index.html
+ERR: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'sort' in order clause is ambiguous
+
+[ 2017-01-31T00:58:16+08:00 ] 127.0.0.1 /index.php/Admin/Dept/index.html
+ERR: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'sort' in order clause is ambiguous
+
+[ 2017-01-31T00:58:16+08:00 ] 127.0.0.1 /index.php/Admin/Dept/index.html
+ERR: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'sort' in order clause is ambiguous
+
+[ 2017-01-31T00:58:16+08:00 ] 127.0.0.1 /index.php/Admin/Dept/index.html
+ERR: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'sort' in order clause is ambiguous
+
+[ 2017-01-31T00:58:16+08:00 ] 127.0.0.1 /index.php/Admin/Dept/index.html
+ERR: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'sort' in order clause is ambiguous
+
+[ 2017-01-31T00:58:16+08:00 ] 127.0.0.1 /index.php/Admin/Dept/index.html
+ERR: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'sort' in order clause is ambiguous
+
+[ 2017-01-31T00:58:17+08:00 ] 127.0.0.1 /index.php/Admin/Dept/index.html
+ERR: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'sort' in order clause is ambiguous
+
+[ 2017-01-31T00:58:17+08:00 ] 127.0.0.1 /index.php/Admin/Dept/index.html
+ERR: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'sort' in order clause is ambiguous
+
+[ 2017-01-31T00:58:17+08:00 ] 127.0.0.1 /index.php/Admin/Dept/index.html
+ERR: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'sort' in order clause is ambiguous
+
+[ 2017-01-31T01:00:13+08:00 ] 127.0.0.1 /index.php/Admin/Dept/index.html
+ERR: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'sort' in order clause is ambiguous
+
+[ 2017-01-31T01:00:14+08:00 ] 127.0.0.1 /index.php/Admin/Dept/index.html
+ERR: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'sort' in order clause is ambiguous
+
+[ 2017-01-31T01:00:14+08:00 ] 127.0.0.1 /index.php/Admin/Dept/index.html
+ERR: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'sort' in order clause is ambiguous
+
+[ 2017-01-31T01:00:14+08:00 ] 127.0.0.1 /index.php/Admin/Dept/index.html
+ERR: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'sort' in order clause is ambiguous
+
+[ 2017-01-31T01:00:15+08:00 ] 127.0.0.1 /index.php/Admin/Dept/index.html
+ERR: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'sort' in order clause is ambiguous
+
+[ 2017-01-31T01:00:15+08:00 ] 127.0.0.1 /index.php/Admin/Dept/index.html
+ERR: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'sort' in order clause is ambiguous
+
+[ 2017-01-31T01:00:15+08:00 ] 127.0.0.1 /index.php/Admin/Dept/index.html
+ERR: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'sort' in order clause is ambiguous
+
